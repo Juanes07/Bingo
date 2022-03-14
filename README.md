@@ -20,3 +20,8 @@ Se crea la funcion para sacar aleatoriamente una balota. aparece
 El inicio del conteo regresivo para iniciar el juego.
 
 Se crea la funcion para realizar cartones aleatorios pero no se asignan a cada jugador
+
+
+# EXTRA
+
+En el archivo  BINGO.postman_collection.json  se encuentra una lista de peticion para postman 
