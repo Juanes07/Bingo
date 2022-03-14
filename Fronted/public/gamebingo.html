@@ -19,7 +19,7 @@
         </ul>
         <div class="bottonsB">
           <div>
-            <button id="b1"><p>--</p></button>
+            <button id="b1"><p>10</p></button>
           </div>
           <div>
             <button id="b2"><p>10</p></button>
@@ -158,7 +158,7 @@
     </div>
 
     <div class="container-users">
-      <h3>Usuarios en lobby</h3>
+      <h3>Usuarios en lobby :</h3>
       <div id="listAllUsers">
 
       </div>
@@ -169,13 +169,10 @@
         Sacar la balota
       </button>
     </div>
-    <button class="generateBallot" id="generate" onclick="generateCartoon()">
-
     </button>
     <script src="service.js"></script>
     <script>
       init()
-
       function generateBallot() {
         const b = [];
         const i = [];
@@ -276,8 +273,6 @@
           listAllUsersHTML += '</ul>'
           listAllUsers.innerHTML = listAllUsersHTML
         }
-
-
     </script>
 
   </body>

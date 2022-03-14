@@ -1,3 +1,7 @@
+/**
+ * Librerias importadas
+ */
+
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
@@ -7,6 +11,9 @@ const mongoose = require('mongoose')
 const User = require('./userschema')
 const fetch = require('node-fetch')
 
+/**
+ * conexion a base de datos mongo
+ */
 const mongodb = 'mongodb://localhost/bingo'
 mongoose.connect(mongodb, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
@@ -16,9 +23,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extends: false }))
 
 app.use(express.static(path.join(__dirname, 'public')))
-
-app.get('/', (req, res) => {
-})
 
 app.post('/register', (req, res) => {
   const { username, password } = req.body
@@ -46,12 +50,11 @@ app.post('/authenticate', (req, res) => {
         } else if (result) {
           res.status(200).json({ id: user._id })
         } else {
-         // res.status(500).send('usuario y/o contraseña incorrecta')
+          res.status(500).send('usuario y/o contraseña incorrecta')
         }
       })
     }
   })
-
 })
 
 app.get('/user/:id', (req, res) => {

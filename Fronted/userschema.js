@@ -1,8 +1,16 @@
+/**
+ * librerias importadas
+ */
+
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-
+/**
+ * consiste en las veces que se encripta la contraseña
+ */
 const saltRounds = 10
-// Schema usuario
+/**
+ * creacion del Schema usuario
+ */
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -14,7 +22,9 @@ const userSchema = new mongoose.Schema({
     require: true
   }
 })
-// encryptar password
+/**
+ * encryptar contraseña
+ */
 userSchema.pre('save', function (next) {
   if (this.isNew || this.isModified('password')) {
     const document = this

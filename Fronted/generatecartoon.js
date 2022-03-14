@@ -1,4 +1,3 @@
-
 /**
  * Genera numero aleatorio
  * @param {int} min numero minimo del rango

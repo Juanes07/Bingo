@@ -1,5 +1,9 @@
+/**
+ * Librerias importadas
+ */
+
 const urlApi = 'http://localhost:8098/api/game'
-const urlApiNode = 'http://localhost:3000';
+const urlApiNode = 'http://localhost:3000'
 
 /**
  * guarda un nuevo juego en base de datos
@@ -159,7 +163,11 @@ function getCartoonByGameIdAndUserId(gameId, userId) {
       console.log(e)
     })
 }
-
+/**
+ *  funcion para obtener usarios mediante su id
+ * @param {String} userId referencia al id del usuario en mongodb
+ * @returns una peticion endpoint para la base de datos
+ */
 function getUserById(userId) {
   return fetch(`${urlApiNode}/user/${userId}`).then(response => response.json()).catch(e => console.log(e))
 }

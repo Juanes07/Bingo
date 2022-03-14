@@ -301,4 +301,14 @@ button:hover{
 
 .container-users {
     background-color: white;
+    width: 600px;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.container-users h3{
+    margin-left: 9px;
 }
