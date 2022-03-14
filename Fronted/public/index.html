@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/authenticate" id="formLogin" method="post">
+            <h2>Login</h2>
+            <div class="section">
+                <div class="title">Username</div>
+                <div class="field">
+                    <input type="text" id="username" name="username">
+                </div>
+            </div>
+            <div class="section">
+                <div class="title">Password</div>
+                <div class="field">
+                    <input type="password" id="password" name="password">
+                </div>
+            </div>
+            <div class="section">
+                <div class="button">
+                    <input type="submit" value="Login">
+                </div>
+            <div class="button">
+                <a href="signup.html">Registrarse</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+  <script>
+    const formLogin = document.getElementById('formLogin')
+    formLogin.addEventListener('submit', function(e){
+      e.preventDefault()
+      const username = document.getElementById('username').value
+      const password = document.getElementById('password').value
+
+      const data = JSON.stringify({
+          username,
+          password
+        })
+
+      fetch('http://localhost:3000/authenticate', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      }).then(response => response.json())
+        .then(data => {
+            if (data.id) {
+              window.localStorage.setItem('userId', data.id)
+              location.href = 'http://localhost:3000/bingo.html'
+            }
+        })
+    })
+  </script>
+
+
+</html>

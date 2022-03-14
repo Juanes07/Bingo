@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Game</title>
+</head>
+<body>
+    <div class="bingo-container">
+        <div class="games" id="games">
+            <ul >
+                <li> game 1</li>
+                <li> game 2</li>
+                <li> game 3</li>
+            </ul>
+        </div>
+        <div class="buttons">
+            <button onclick="joinGame()"> Unirse </button><br>
+            <button onclick="createGame()"> Crear game </button><br>
+            <button> Salir </button>
+        </div>
+    </div>
+</body>
+<script src="service.js"></script>
+<script>
+    var GAMEACTIVE = 0
+    getPedingGames()
+    async function createGame() {
+        const newGame = {
+            status: 'PENDING',
+            date: new Date()
+        }
+
+        const userId = window.localStorage.getItem('userId')
+
+        const game = await saveGame(newGame)
+        const newUser = {
+            gameId: game.id,
+            userId
+        }
+
+        await addUserToGame(newUser)
+        window.localStorage.setItem('gameId', game.id)
+
+        location.href = 'http://localhost:3000/gamebingo.html'
+    }
+
+    async function getPedingGames() {
+        const games = await getGameByStatus('PENDING')
+        let listGamesHTML = '<ul>'
+        const listGames = document.getElementById('games')
+
+        for (const game of games) {
+            listGamesHTML += `<li class="game-li" id="${game.id}" onclick="setGameActive(${game.id})"> ${game.id} - ${game.date} </li>`
+        }
+        listGamesHTML += '</ul>'
+        listGames.innerHTML = listGamesHTML
+    }
+
+    function setGameActive(id) {
+        GAMEACTIVE = id
+        const lis = document.getElementsByClassName('game-li')
+        for (const li of lis) {
+            li.classList.remove("game-li-active")
+        }
+
+        document.getElementById(id).classList.add("game-li-active")
+    }
+
+    async function joinGame(){
+        if (GAMEACTIVE === 0 ) return alert('Seleccione una partida')
+
+        const userId = window.localStorage.getItem('userId')
+
+        const newUser = {
+            gameId: GAMEACTIVE,
+            userId
+        }
+
+        await addUserToGame(newUser)
+
+        window.localStorage.setItem('gameId', GAMEACTIVE)
+
+        location.href = 'http://localhost:3000/gamebingo.html'
+    }
+</script>
+
+</html>

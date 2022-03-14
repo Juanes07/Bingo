@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cartoon.css" />
+    <title>Bingo Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cartoon">
+        <ul class="letters">
+          <li><p>B</p></li>
+          <li><p>I</p></li>
+          <li><p>N</p></li>
+          <li><p>G</p></li>
+          <li><p>O</p></li>
+        </ul>
+        <div class="bottonsB">
+          <div>
+            <button id="b1"><p>--</p></button>
+          </div>
+          <div>
+            <button id="b2"><p>10</p></button>
+          </div>
+          <div>
+            <button id="b3"><p>10</p></button>
+          </div>
+          <div>
+            <button id="b4"><p>10</p></button>
+          </div>
+          <div>
+            <button id="b5"><p>10</p></button>
+          </div>
+        </div>
+        <div class="bottonsI">
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+        </div>
+        <div class="bottonsN">
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><p>X</p></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+        </div>
+        <div class="bottonsG">
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+        </div>
+        <div class="bottonsO">
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+          <div><button>10</button></div>
+        </div>
+      </div>
+      <div class="Ballots">
+        <div class="ballotsB">
+          <div><p>B</p></div>
+          <div>01</div>
+          <div>02</div>
+          <div>03</div>
+          <div>04</div>
+          <div>05</div>
+          <div>06</div>
+          <div>07</div>
+          <div>08</div>
+          <div>09</div>
+          <div>10</div>
+          <div>11</div>
+          <div>12</div>
+          <div>13</div>
+          <div>14</div>
+          <div>15</div>
+        </div>
+        <div class="ballotsI">
+          <div><p>I</p></div>
+          <div>16</div>
+          <div>17</div>
+          <div>18</div>
+          <div>19</div>
+          <div>20</div>
+          <div>21</div>
+          <div>22</div>
+          <div>23</div>
+          <div>24</div>
+          <div>25</div>
+          <div>26</div>
+          <div>27</div>
+          <div>28</div>
+          <div>29</div>
+          <div>30</div>
+        </div>
+        <div class="ballotsN">
+          <div><p>N</p></div>
+          <div>31</div>
+          <div>32</div>
+          <div>33</div>
+          <div>34</div>
+          <div>35</div>
+          <div>36</div>
+          <div>37</div>
+          <div>38</div>
+          <div>39</div>
+          <div>40</div>
+          <div>41</div>
+          <div>42</div>
+          <div>43</div>
+          <div>44</div>
+          <div>45</div>
+        </div>
+        <div class="ballotsG">
+          <div><p>G</p></div>
+          <div>46</div>
+          <div>47</div>
+          <div>48</div>
+          <div>49</div>
+          <div>50</div>
+          <div>51</div>
+          <div>52</div>
+          <div>53</div>
+          <div>54</div>
+          <div>55</div>
+          <div>56</div>
+          <div>57</div>
+          <div>58</div>
+          <div>59</div>
+          <div>60</div>
+        </div>
+        <div class="ballotsO">
+          <div><p>O</p></div>
+          <div>61</div>
+          <div>62</div>
+          <div>63</div>
+          <div>64</div>
+          <div>65</div>
+          <div>66</div>
+          <div>67</div>
+          <div>68</div>
+          <div>69</div>
+          <div>70</div>
+          <div>71</div>
+          <div>72</div>
+          <div>73</div>
+          <div>74</div>
+          <div>75</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-users">
+      <h3>Usuarios en lobby</h3>
+      <div id="listAllUsers">
+
+      </div>
+    </div>
+    <div class="bingo">
+      <button class="Winner">BINGO!!</button>
+      <button class="generateBallot" id="generate" onclick="generateBallot()">
+        Sacar la balota
+      </button>
+    </div>
+    <button class="generateBallot" id="generate" onclick="generateCartoon()">
+
+    </button>
+    <script src="service.js"></script>
+    <script>
+      init()
+
+      function generateBallot() {
+        const b = [];
+        const i = [];
+        const n = [];
+        const g = [];
+        const o = [];
+        const numInitial = 1;
+        const numFinal = 75;
+        const number = parseInt(
+          Math.random() * (numInitial - numFinal) + numFinal
+        );
+        if (number >= 1 && number <= 15) {
+          b.push(number);
+          window.alert("Balota B: " + number);
+          b.sort(function (a, b) {
+            return a - b;
+          });
+        } else if (number >= 16 && number <= 30) {
+          i.push(number);
+          window.alert("Balota I: " + number);
+          i.sort(function (a, b) {
+            return a - b;
+          });
+        } else if (number >= 31 && number <= 45) {
+          n.push(number);
+          window.alert("Balota N: " + number);
+          n.sort(function (a, b) {
+            return a - b;
+          });
+        } else if (number >= 16 && number <= 30) {
+          g.push(number);
+          window.alert("Balota G: " + number);
+          g.sort(function (a, b) {
+            return a - b;
+          });
+        } else if (number >= 61 && number <= 75) {
+          o.push(number);
+          window.alert("Balota O: " + number);
+          o.sort(function (a, b) {
+            return a - b;
+          });
+        }
+      }
+
+        /**
+         * genera el carton para jugar
+         */
+        function generateCartoon() {
+          const B = generatecolumn(1, 15, 5);
+          const I = generatecolumn(16, 30, 5);
+          const N = generatecolumn(31, 45, 4);
+          const G = generatecolumn(46, 60, 5);
+          const O = generatecolumn(61, 75, 5);
+          return console.log([B, I, N, G, O]);
+        }
+
+        /**
+         * genera los valores para cada columna del carton
+         * @param {int} min numero minimo del rango
+         * @param {int} max numero maximo del rango
+         * @param {int} quantity cantidad de numeros en la columna
+         * @returns la columna
+         */
+        function generatecolumn(min, max, quantity) {
+          const column = [];
+          while (column.length < quantity) {
+            const numberRandom = generateRandom(min, max);
+            let exist = false;
+            for (let i = 0; i < column.length; i++) {
+              if (column[i] === numberRandom) {
+                exist = true;
+                break;
+              }
+            }
+            if (!exist) {
+              column.push(numberRandom);
+            }
+          }
+          return column;
+        }
+        function generateRandom(min, max) {
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        async function init () {
+          const gameId = window.localStorage.getItem('gameId')
+          const userId = window.localStorage.getItem('userId')
+          const users = await getUserByGameId(gameId)
+
+          let listAllUsersHTML = '<ul>'
+          const listAllUsers = document.getElementById('listAllUsers')
+
+          for (const user of users) {
+            const userGot = await getUserById(user.userId)
+            listAllUsersHTML += `<li> ${userGot.username} </li>`
+          }
+
+          listAllUsersHTML += '</ul>'
+          listAllUsers.innerHTML = listAllUsersHTML
+        }
+
+
+    </script>
+
+  </body>
+</html>

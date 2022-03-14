@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: rgb(36, 36, 36);
+}
+
+.cont-tempo{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.cont-tempo .bloq{
+    margin: 0px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cont-tempo .bloq div{
+    margin: 0px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(80, 80, 80);
+    box-sizing: 0px 0px 6px 2px #72727272 inset;
+    color: white;
+    font-size: 40px;
+    width: 100px;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.cont-tempo .bloq p{
+    font-size: 11px;
+    font-weight: bold;
+    color: #dedede;
+}
+
+.bingo-container {
+    width: 100%;
+    display: flex;
+    padding: 90px;
+}
+
+.bingo-container > .games {
+   width: 70%;
+}
+
+.bingo-container > .buttons {
+    width: 30%;
+}
+
+.bingo-container > .buttons button {
+    margin: 10px;
+    padding: 10px;
+}
+
+.games {
+    background-color: #cccccc;
+    padding: 10px;
+}
+
+.games li {
+    margin-bottom: 5px;
+    border: solid black 1px;
+}
+
+.games li:hover {
+    cursor: pointer;
+}
+
+.game-li-active {
+    background-color: brown;
+    color: #cccccc;
+}
+

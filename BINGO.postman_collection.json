@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "6793796c-5994-425d-9547-99aee446cc39",
+		"name": "BINGO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SAVE GAME",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"PENDING\",\n    \"date\": \"2022-03-12\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8098/api/game/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL GAME",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8098/api/game/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET GAME BY STATUS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8098/api/game/status?status=PENDING",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "PENDING"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER BY GAME ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8098/api/game/1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "START GAME",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8098/api/game/start_game/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"start_game",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD USER TO GAME",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gameId\": 1,\n    \"userId\": \"uiwertuertquiurkjdgs\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8098/api/game/user/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"user",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE BALLOT GAME",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ballot\": 10,\n    \"gameId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8098/api/game/ballot_used/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"ballot_used",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BALLOT BY GAME ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8098/api/game/1/ballot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"1",
+						"ballot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE CARTOON",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gameId\": 1,\n    \"userId\": \"uiwertuertquiurkjdgs\",\n    \"b\": \"9|11|15|6|4\",\n    \"i\": \"16|28|26|29|20\",\n    \"n\": \"40|33|00|41|36\",\n    \"g\": \"55|52|49|50|57\",\n    \"o\": \"66|65|69|62|72\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8098/api/game/cartoon/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"cartoon",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CARTOON BY GAMEID AND USER ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8098/api/game/1/cartoon/user/uiwertuertquiurkjdgs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"api",
+						"game",
+						"1",
+						"cartoon",
+						"user",
+						"uiwertuertquiurkjdgs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
